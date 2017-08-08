@@ -16,8 +16,12 @@
       <tr>
         <td><%= picture.title %></td>
         <td><%= image_tag picture.url %></td>
-        <td><%= pluralize(picture.votes.count, "vote") %></td>
-        <td><%= button_to '+1', upvote_picture_path(picture), method: :post %></td>
+        <td><%= pluralize(picture.votes_count, "vote") %></td>
+        <td>
+          <%= button_to upvote_picture_path(picture), method: :post  do %>
+            <i class='fa fa-heart'></i>
+          <% end %>
+        </td>
         <td><%= link_to 'Show', picture %></td>
         <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
         <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -26,7 +30,7 @@
   </tbody>
 
 </table>
-<p> Enrique's branch</p>
+
 <br>
 
 <%= link_to 'New Picture', new_picture_path %>
