@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  resource :comments
+
   root 'pictures#index'
   resources :pictures do
   member do
