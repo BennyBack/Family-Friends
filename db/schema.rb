@@ -27,6 +27,14 @@ ActiveRecord::Schema.define(version: 20170807045349) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "picture_id"
+
+    t.integer "votes_count", default: 0
+  end
+
+  create_table "votes", force: :cascade do |t|
+    t.integer "picture_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

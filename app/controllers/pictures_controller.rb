@@ -4,7 +4,8 @@ class PicturesController < ApplicationController
   # GET /pictures
   # GET /pictures.json
   def index
-    @pictures = Picture.all
+    @pictures = Picture.all.order('votes_count DESC')
+
   end
 
   # GET /pictures/1
@@ -30,7 +31,7 @@ class PicturesController < ApplicationController
 
     respond_to do |format|
       if @picture.save
-        format.html { redirect_to @picture, notice: 'Picture was successfully created.' }
+        format.html { redirect_to pictures_path, notice: 'Picture was successfully created.' }
         format.json { render :show, status: :created, location: @picture }
       else
         format.html { render :new }
@@ -44,7 +45,7 @@ class PicturesController < ApplicationController
   def update
     respond_to do |format|
       if @picture.update(picture_params)
-        format.html { redirect_to @picture, notice: 'Picture was successfully updated.' }
+        format.html { redirect_to pictures_path, notice: 'Picture was successfully updated.' }
         format.json { render :show, status: :ok, location: @picture }
       else
         format.html { render :edit }
@@ -62,6 +63,12 @@ class PicturesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def upvote
+  @picture = Picture.find(params[:id])
+  @picture.votes.create
+  redirect_to(pictures_path)
+end
 
   private
     # Use callbacks to share common setup or constraints between actions.
