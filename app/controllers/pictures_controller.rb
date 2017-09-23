@@ -78,6 +78,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def picture_params
-      params.require(:picture).permit(:title, :url)
+      params.require(:picture).permit(:title, :image, :url)
     end
  end

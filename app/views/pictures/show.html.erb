@@ -7,6 +7,10 @@
   <%= image_tag @picture.url %>
 </p>
 
+<p>
+	<%= image_tag (@picture.image.url(:lg)), @picture.image.url %>
+</p>
+
 <% @picture.comments.each do |comment| %>
 <% comment %>
 <h3><%= comment.name %></h3>
