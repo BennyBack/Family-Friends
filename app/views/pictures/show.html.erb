@@ -8,7 +8,7 @@
 </p>
 
 <p>
-	<%= image_tag (@picture.image.url(:lg)), @picture.image.url %>
+	<%= image_tag(@picture.image.url) %>
 </p>
 
 <% @picture.comments.each do |comment| %>
