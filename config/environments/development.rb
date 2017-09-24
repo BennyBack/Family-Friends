@@ -53,5 +53,14 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   Paperclip.options[:command_path] = "/usr/local/bin/"
-  
+
+  config.paperclip_defaults = {
+  storage: :s3,
+  s3_credentials: {
+    bucket: ENV.fetch('vista-online-picture-collection'),
+    access_key_id: ENV.fetch('AKIAIZOGPHVCMPY7BO2A'),
+    secret_access_key: ENV.fetch('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'),
+    s3_region: ENV.fetch('US East (N.Virginia)'),
+  }
+}
 end
