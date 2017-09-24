@@ -92,10 +92,10 @@ Rails.application.configure do
   config.paperclip_defaults = {
   storage: :s3,
   s3_credentials: {
-    bucket: ENV.fetch('vista-online-picture-collection'),
-    access_key_id: ENV.fetch('AKIAIZOGPHVCMPY7BO2A'),
-    secret_access_key: ENV.fetch('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'),
-    s3_region: ENV.fetch('us-east-1'),
+    bucket: ENV.fetch('S3_BUCKET_NAME'),
+    access_key_id: ENV.fetch('AWS_ACCESS_KEY_ID'),
+    secret_access_key: ENV.fetch('AWS_SECRET_ACCESS_KEY'),
+    s3_region: ENV.fetch('S3_REGION'),
   }
 }
 end
