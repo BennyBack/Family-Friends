@@ -14,3 +14,8 @@ table{
 	table-layout: auto;
 	text-align: center;
 }
+
+div#showpage img {
+	max-height: 600px;
+	width: auto;
+}
